@@ -1,4 +1,4 @@
-import { ArrowUp, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { ArrowUp, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -40,14 +40,6 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook size={20} />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="text-gray-300 hover:text-amber-500 transition-colors"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
                 <Instagram size={20} />
               </motion.a>
               <motion.a 
@@ -56,15 +48,10 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Twitter size={20} />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="text-gray-300 hover:text-amber-500 transition-colors"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Linkedin size={20} />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12.34L11.78 15.12L18.35 8.55"></path>
+                  <path d="M21.08 8C20.71 6.7 20 5.5 19.03 4.53C18.05 3.56 16.86 2.85 15.56 2.48C14.15 2.08 12.67 2.08 11.27 2.48C9.95 2.85 8.76 3.56 7.79 4.53L4.5 7.82V11C4.5 11 8.35 10.4 10.04 12.08C11.73 13.77 11 17.5 11 17.5H14.18L17.47 14.21C18.44 13.23 19.15 12.05 19.52 10.73C19.92 9.33 19.92 7.85 19.52 6.44M14.5 14.5L9.5 9.5"></path>
+                </svg>
               </motion.a>
             </div>
           </div>
