@@ -30,6 +30,50 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Variasi animasi untuk item navbar
+  const navItemVariants = {
+    initial: { y: -5, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: 5, opacity: 0 },
+    hover: { scale: 1.05, color: "#f59e0b" }
+  };
+
+  // Variasi untuk underline 
+  const underlineVariants = {
+    hidden: { width: 0 },
+    visible: { width: '100%' }
+  };
+
+  // Komponen NavItem dengan animasi
+  const NavItem = ({ to, children, onClick = () => {} }: { to: string; children: React.ReactNode; onClick?: () => void }) => {
+    return (
+      <NavLink to={to} onClick={onClick}>
+        {({ isActive }) => (
+          <motion.div 
+            className="relative"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            whileHover="hover"
+            variants={navItemVariants}
+            transition={{ duration: 0.2 }}
+          >
+            <span className={isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300'}>
+              {children}
+            </span>
+            <motion.div 
+              className="absolute bottom-0 left-0 h-0.5 bg-amber-500"
+              initial="hidden"
+              variants={underlineVariants}
+              animate={isActive ? "visible" : "hidden"}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        )}
+      </NavLink>
+    );
+  };
+
   return (
     <nav className={`py-4 sticky top-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white dark:bg-gray-900 shadow-md' : 'bg-white/95 dark:bg-gray-900/95'
@@ -56,65 +100,39 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <NavLink 
-              to="/" 
-              className={({ isActive }) => 
-                isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors'
-              }
-            >
-              {t('home')}
-            </NavLink>
-            <NavLink 
-              to="/about" 
-              className={({ isActive }) => 
-                isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors'
-              }
-            >
-              {t('about')}
-            </NavLink>
-            <NavLink 
-              to="/services" 
-              className={({ isActive }) => 
-                isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors'
-              }
-            >
-              {t('services')}
-            </NavLink>
-            <NavLink 
-              to="/portfolio" 
-              className={({ isActive }) => 
-                isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors'
-              }
-            >
-              {t('portfolio')}
-            </NavLink>
-            <NavLink 
-              to="/contact" 
-              className={({ isActive }) => 
-                isActive ? 'text-amber-500 font-medium' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors'
-              }
-            >
-              {t('contact')}
-            </NavLink>
+            <NavItem to="/">{t('home')}</NavItem>
+            <NavItem to="/about">{t('about')}</NavItem>
+            <NavItem to="/services">{t('services')}</NavItem>
+            <NavItem to="/portfolio">{t('portfolio')}</NavItem>
+            <NavItem to="/contact">{t('contact')}</NavItem>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
             <LanguageToggle />
-            <NavLink 
-              to="/contact" 
-              className="bg-indigo-700 hover:bg-indigo-800 text-white px-4 py-2 rounded-md transition-colors text-sm font-medium"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {t('getQuote')}
-            </NavLink>
+              <NavLink 
+                to="/contact" 
+                className="bg-indigo-700 hover:bg-indigo-800 text-white px-4 py-2 rounded-md transition-colors text-sm font-medium"
+              >
+                {t('getQuote')}
+              </NavLink>
+            </motion.div>
           </div>
           
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
-            <button onClick={toggleMenu} className="text-gray-700 dark:text-gray-300">
+            <motion.button 
+              onClick={toggleMenu} 
+              className="text-gray-700 dark:text-gray-300"
+              whileTap={{ scale: 0.9 }}
+            >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </div>
         
@@ -128,63 +146,39 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-700"
             >
-              <div className="flex flex-col space-y-5 py-2">
-                <NavLink 
-                  to="/" 
-                  className={({ isActive }) => 
-                    isActive ? 'text-amber-500 font-medium text-lg' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors text-lg'
+              <motion.div 
+                className="flex flex-col space-y-5 py-2"
+                initial="initial"
+                animate="animate"
+                variants={{
+                  animate: {
+                    transition: {
+                      staggerChildren: 0.1
+                    }
                   }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('home')}
-                </NavLink>
-                <NavLink 
-                  to="/about" 
-                  className={({ isActive }) => 
-                    isActive ? 'text-amber-500 font-medium text-lg' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors text-lg'
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('about')}
-                </NavLink>
-                <NavLink 
-                  to="/services" 
-                  className={({ isActive }) => 
-                    isActive ? 'text-amber-500 font-medium text-lg' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors text-lg'
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('services')}
-                </NavLink>
-                <NavLink 
-                  to="/portfolio" 
-                  className={({ isActive }) => 
-                    isActive ? 'text-amber-500 font-medium text-lg' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors text-lg'
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('portfolio')}
-                </NavLink>
-                <NavLink 
-                  to="/contact" 
-                  className={({ isActive }) => 
-                    isActive ? 'text-amber-500 font-medium text-lg' : 'text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors text-lg'
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('contact')}
-                </NavLink>
+                }}
+              >
+                <NavItem to="/" onClick={() => setIsMenuOpen(false)}>{t('home')}</NavItem>
+                <NavItem to="/about" onClick={() => setIsMenuOpen(false)}>{t('about')}</NavItem>
+                <NavItem to="/services" onClick={() => setIsMenuOpen(false)}>{t('services')}</NavItem>
+                <NavItem to="/portfolio" onClick={() => setIsMenuOpen(false)}>{t('portfolio')}</NavItem>
+                <NavItem to="/contact" onClick={() => setIsMenuOpen(false)}>{t('contact')}</NavItem>
                 <div className="pt-3 flex justify-between items-center">
                   <LanguageToggle />
                 </div>
-                <NavLink 
-                  to="/contact" 
-                  className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-md transition-colors text-base font-medium text-center shadow-md"
-                  onClick={() => setIsMenuOpen(false)}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {t('getQuote')}
-                </NavLink>
-              </div>
+                  <NavLink 
+                    to="/contact" 
+                    className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-md transition-colors text-base font-medium text-center shadow-md block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {t('getQuote')}
+                  </NavLink>
+                </motion.div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
