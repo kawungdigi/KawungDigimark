@@ -34,6 +34,25 @@ export default {
           900: '#78350f',
           950: '#451a03'
         }
+      },
+      screens: {
+        'xs': '360px',
+        // => @media (min-width: 360px) { ... }
+      },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+      },
+      fontSize: {
+        'mobile-xs': ['0.75rem', { lineHeight: '1.25rem' }],
+        'mobile-sm': ['0.875rem', { lineHeight: '1.375rem' }],
+        'mobile-base': ['1rem', { lineHeight: '1.5rem' }],
+        'mobile-lg': ['1.125rem', { lineHeight: '1.75rem' }],
+      },
+      touchAction: {
+        'manipulation': 'manipulation',
       }
     },
   },

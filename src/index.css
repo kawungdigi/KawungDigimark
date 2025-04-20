@@ -27,4 +27,40 @@
   .text-xs, .text-sm {
     @apply leading-relaxed;
   }
+  
+  /* Mengoptimalkan area sentuh untuk elemen yang dapat diklik */
+  a, button, [role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+    padding: 0.625rem;
+  }
+  
+  /* Menyesuaikan padding untuk konten pada mobile */
+  .container {
+    @apply px-4;
+  }
+  
+  /* Mengoptimalkan ukuran input pada form */
+  input, select, textarea {
+    @apply py-3 px-4;
+  }
+  
+  /* Meningkatkan kontras dan keterbacaan teks */
+  p {
+    @apply leading-7;
+  }
+  
+  /* Optimasi untuk gambar responsif */
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Meningkatkan spacing untuk list items */
+  li {
+    @apply my-1.5;
+  }
+  
+  /* Smooth scrolling untuk navigasi antar bagian */
+  html {
+    scroll-behavior: smooth;
+  }
 }
