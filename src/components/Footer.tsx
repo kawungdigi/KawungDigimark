@@ -36,21 +36,27 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a 
-                href="#" 
+                href="https://www.instagram.com/kawungdigimark/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-amber-500 transition-colors"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Instagram size={20} />
               </motion.a>
-              <motion.a 
-                href="#" 
-                className="text-gray-300 hover:text-amber-500 transition-colors"
+              <motion.div
+                className="relative group"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <FaTiktok size={20} />
-              </motion.a>
+                <span className="text-gray-300 hover:text-amber-500 transition-colors cursor-pointer">
+                  <FaTiktok size={20} />
+                </span>
+                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  Coming Soon
+                </div>
+              </motion.div>
             </div>
           </div>
           
