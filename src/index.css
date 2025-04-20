@@ -4,9 +4,27 @@
 
 :root {
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Menghilangkan highlight tap pada mobile */
 }
 
 /* Dark mode adjustments */
 .dark body {
   @apply bg-gray-900 text-white;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  input, select, textarea, button {
+    font-size: 16px !important; /* Mencegah zoom otomatis pada iOS saat fokus input */
+  }
+  
+  /* Meningkatkan ruang klik pada navigasi mobile */
+  .nav-link {
+    @apply py-2;
+  }
+  
+  /* Memperbaiki readability pada teks kecil di mobile */
+  .text-xs, .text-sm {
+    @apply leading-relaxed;
+  }
 }
