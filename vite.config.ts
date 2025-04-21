@@ -6,70 +6,11 @@ export default defineConfig({
   plugins: [
     react(),
     {
-      name: "digital-marketing-branding",
+      name: "dev-only-logs",
 
       // ref: https://vite.dev/guide/api-plugin.html#transformindexhtml
       transformIndexHtml(html) {
-        if (process.env.NODE_ENV !== "development" && process.env.SHOW_WATERMARK !== "false") {
-          return [
-            {
-              tag: "style",
-              attrs: { type: "text/css" },
-              injectTo: "head",
-              children: `
-                .digital-watermark {
-                  position: fixed;
-                  bottom: 16px;
-                  right: 16px;
-                  background: linear-gradient(to right, #4338ca, #6366f1);
-                  border-radius: 8px;
-                  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-                  display: flex;
-                  align-items: center;
-                  padding: 8px 12px;
-                  z-index: 9999;
-                  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                  font-size: 14px;
-                  font-weight: 600;
-                  color: white;
-                  gap: 8px;
-                  border: none;
-                  cursor: pointer;
-                  transition: all 0.2s ease-in-out;
-                }
-                .digital-watermark:hover {
-                  transform: translateY(-2px);
-                  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-                }
-                .digital-watermark:active {
-                  transform: translateY(0);
-                  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-                }
-                .digital-watermark img {
-                  width: 16px;
-                  height: 16px;
-                }
-              `,
-            },
-            {
-              tag: "script",
-              attrs: { type: "module" },
-              injectTo: "body",
-              children: `
-                const watermark = document.createElement('a');
-                watermark.href = 'https://kawungdigimark.com';
-                watermark.target = '_blank';
-                watermark.className = 'digital-watermark';
-                watermark.innerHTML = \`
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                  Powered by Kawung Digital
-                \`;
-                document.body.appendChild(watermark);
-              `,
-            },
-          ];
-        }
-
+        // Watermark has been removed
         return [
           {
             tag: "script",
