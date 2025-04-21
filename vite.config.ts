@@ -6,11 +6,10 @@ export default defineConfig({
   plugins: [
     react(),
     {
-      name: "dev-only-logs",
+      name: "development-tools",
 
       // ref: https://vite.dev/guide/api-plugin.html#transformindexhtml
       transformIndexHtml(html) {
-        // Watermark has been removed
         return [
           {
             tag: "script",
@@ -21,20 +20,34 @@ export default defineConfig({
             for (const method of ['log', 'debug', 'info', 'error', 'warn']) {
               const originalFn = console[method];
               console[method] = function(...args) {
-                window.parent.postMessage({ type: 'console', method, args: args.map(a => \`\${a}\`) }, '*');
+                if (window.parent) {
+                  try {
+                    window.parent.postMessage({ type: 'console', method, args: args.map(a => \`\${a}\`) }, '*');
+                  } catch (e) {
+                    // Silently fail if posting message fails
+                  }
+                }
                 return originalFn(...args);
               };
             }
 
             // Report any thrown errors / promise rejections so they show up in the logs
             window.addEventListener('error', (e) => {
-              if (window.parent) {
-                window.parent.postMessage({ type: 'error', stack: e.error.stack }, '*');
+              if (window.parent && e.error) {
+                try {
+                  window.parent.postMessage({ type: 'error', stack: e.error.stack }, '*');
+                } catch (err) {
+                  // Silently fail if posting message fails
+                }
               }
             });
             window.addEventListener('unhandledrejection', (e) => {
               if (window.parent) {
-                window.parent.postMessage({ type: 'unhandledrejection', reason: e.reason }, '*');
+                try {
+                  window.parent.postMessage({ type: 'unhandledrejection', reason: e.reason }, '*');
+                } catch (err) {
+                  // Silently fail if posting message fails
+                }
               }
             });
 
@@ -43,7 +56,13 @@ export default defineConfig({
             const originalReplaceState = history.replaceState;
 
             const notifyParent = () => {
-              window.parent.postMessage({ type: 'iframe_url_changed', url: window.location.href }, '*');
+              if (window.parent) {
+                try {
+                  window.parent.postMessage({ type: 'iframe_url_changed', url: window.location.href }, '*');
+                } catch (e) {
+                  // Silently fail if posting message fails
+                }
+              }
             };
 
             history.pushState = function (...args) {
@@ -63,8 +82,8 @@ export default defineConfig({
         ];
       },
 
-      transform(src: string, id: string) {
-        if (id === "/app/src/main.tsx") {
+      transform(src, id) {
+        if (id.includes('main.tsx')) {
           return `
             ${src}
             if (process.env.NODE_ENV === 'development') {
@@ -73,17 +92,29 @@ export default defineConfig({
               if (import.meta.hot) {
                 import.meta.hot.on('vite:error', (data) => {
                   if (window.parent) {
-                    window.parent.postMessage({ type: 'vite:hmr:error', data }, '*');
+                    try {
+                      window.parent.postMessage({ type: 'vite:hmr:error', data }, '*');
+                    } catch (e) {
+                      // Silently fail if posting message fails
+                    }
                   }
                 });
                 import.meta.hot.on('vite:beforeUpdate', (data) => {
                   if (window.parent) {
-                    window.parent.postMessage({ type: 'vite:hmr:beforeUpdate', data }, '*');
+                    try {
+                      window.parent.postMessage({ type: 'vite:hmr:beforeUpdate', data }, '*');
+                    } catch (e) {
+                      // Silently fail if posting message fails
+                    }
                   }
                 });
                 import.meta.hot.on('vite:afterUpdate', (data) => {
                   if (window.parent) {
-                    window.parent.postMessage({ type: 'vite:hmr:afterUpdate', data }, '*');
+                    try {
+                      window.parent.postMessage({ type: 'vite:hmr:afterUpdate', data }, '*');
+                    } catch (e) {
+                      // Silently fail if posting message fails
+                    }
                   }
                 });
               }
@@ -95,5 +126,17 @@ export default defineConfig({
   ],
   server: {
     allowedHosts: true,
+    hmr: {
+      overlay: true,
+    },
+  },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
+        warn(warning);
+      }
+    }
   },
 });
