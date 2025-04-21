@@ -211,7 +211,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Testimonials Section */}
+      {/* Testimonials Section - diubah ke bahasa Indonesia gaul berfokus UMKM */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
@@ -223,28 +223,28 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <TestimonialCard
-              name="Michael Johnson"
-              position="Marketing Director"
-              company="TechSolutions Inc."
-              testimonial="Working with Kawung Digimark transformed our online presence. Their SEO strategies increased our organic traffic by 150% in just 6 months."
+              name="Budi Santoso"
+              position="Pemilik"
+              company="Warung Kopi Sejati"
+              testimonial="Gila sih Kawung Digimark tuh! Awalnya warung kopi gue sepi banget, tapi setelah dibantu digital marketing-nya, jadi rame banget! Follower Instagram naik 300% dalam 3 bulan, orderan online nambah terus. Keren parah!"
               rating={5}
-              image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
             />
             <TestimonialCard
-              name="Sarah Williams"
-              position="CEO"
-              company="Bloom Boutique"
-              testimonial="Their social media marketing expertise helped us connect with our target audience in ways we never imagined. Our engagement rates have tripled!"
+              name="Siti Rahayu"
+              position="Founder"
+              company="Batik Nusantara"
+              testimonial="Jualan batik online berasa naik kelas sejak dibantu Kawung! Dari yang tadinya cuma jualan di offline, sekarang udah punya toko online sendiri, engagement di sosmed meningkat, dan penghasilan bulanan naik 2x lipat. Auto recommended buat UMKM yang mau naik level!"
               rating={5}
               image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
             />
             <TestimonialCard
-              name="David Chen"
-              position="Founder"
-              company="Innovate Studios"
-              testimonial="The content strategy Kawung Digimark created for us has positioned our brand as a thought leader in our industry. Highly recommended!"
-              rating={4}
-              image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              name="Andi Prasetyo"
+              position="CEO"
+              company="Snack Homemade Berkah"
+              testimonial="Bisnis camilan homemade gue jadi makin dikenal semenjak kolaborasi sama Kawung Digimark. Strateginya kece, bikin konten-konten yang bikin orang penasaran. Orderan dari luar kota juga nambah terus. Pokoknya worth it banget lah investasinya!"
+              rating={5}
+              image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
             />
           </div>
         </div>
@@ -266,31 +266,20 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Call To Action */}
-      <section className="py-16 bg-indigo-800 dark:bg-gray-800 text-white">
+      {/* CTA Section */}
+      <section className="py-16 bg-indigo-900 dark:bg-gray-900 text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-6">{t('readyToGrow')}</h2>
-            <p className="text-lg text-indigo-100 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              {t('readyToGrowSubtitle')}
-            </p>
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
+          <h2 className="text-3xl font-bold mb-4">{t('readyToGrow')}</h2>
+          <p className="text-indigo-100 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            {t('readyToGrowSubtitle')}
+          </p>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link 
+              to="/contact" 
+              className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-md transition-colors font-medium inline-block"
             >
-              <Link 
-                to="/contact" 
-                className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-md transition-colors font-medium inline-block"
-              >
-                {t('getStartedToday')}
-              </Link>
-            </motion.div>
+              {t('getStartedToday')}
+            </Link>
           </motion.div>
         </div>
       </section>
