@@ -26,9 +26,9 @@ const item = {
 };
 
 const HomePage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
-  const faqs = [
+  const faqsEn = [
     {
       question: "What digital marketing services do you offer?",
       answer: "We offer a comprehensive suite of digital marketing services including SEO, social media marketing, content marketing, email marketing, PPC advertising, and analytics & reporting. Each service is tailored to meet your specific business needs and goals."
@@ -46,6 +46,27 @@ const HomePage = () => {
       answer: "Yes, we work with businesses of all sizes, from startups to established enterprises. We create customized marketing strategies that align with your business size, industry, goals, and budget."
     }
   ];
+  
+  const faqsId = [
+    {
+      question: "Layanan pemasaran digital apa saja yang Anda tawarkan?",
+      answer: "Kami menawarkan berbagai layanan pemasaran digital termasuk SEO, pemasaran media sosial, pemasaran konten, email marketing, iklan PPC, dan analitik & pelaporan. Setiap layanan disesuaikan untuk memenuhi kebutuhan dan tujuan bisnis Anda."
+    },
+    {
+      question: "Berapa lama waktu yang dibutuhkan untuk melihat hasil dari pemasaran digital?",
+      answer: "Jangka waktu untuk melihat hasil bervariasi tergantung pada strategi yang diterapkan. SEO biasanya membutuhkan 3-6 bulan untuk menunjukkan hasil yang signifikan, sementara iklan berbayar dapat menghasilkan hasil lebih cepat. Kami memberikan pembaruan dan laporan rutin untuk melacak kemajuan."
+    },
+    {
+      question: "Bagaimana Anda mengukur keberhasilan kampanye pemasaran?",
+      answer: "Kami menggunakan berbagai metrik dan KPI yang disesuaikan dengan tujuan spesifik Anda, seperti lalu lintas website, tingkat konversi, tingkat engagement, lead generation, dan ROI. Kami menyediakan analitik komprehensif dan laporan berkala untuk melacak kinerja."
+    },
+    {
+      question: "Apakah Anda bekerja dengan bisnis dari semua ukuran?",
+      answer: "Ya, kami bekerja dengan bisnis dari semua ukuran, mulai dari startup hingga perusahaan besar. Kami membuat strategi pemasaran yang disesuaikan dengan ukuran bisnis, industri, tujuan, dan anggaran Anda."
+    }
+  ];
+
+  const faqs = language === 'id' ? faqsId : faqsEn;
 
   return (
     <div>
@@ -227,7 +248,7 @@ const HomePage = () => {
               position="Pemilik"
               company="Warung Kopi Sejati"
               testimonial="Gila sih Kawung Digimark tuh! Awalnya warung kopi gue sepi banget, tapi setelah dibantu digital marketing-nya, jadi rame banget! Follower Instagram naik 300% dalam 3 bulan, orderan online nambah terus. Keren parah!"
-              rating={5}
+              rating={4}
               image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
             />
             <TestimonialCard
@@ -235,7 +256,7 @@ const HomePage = () => {
               position="Founder"
               company="Batik Nusantara"
               testimonial="Jualan batik online berasa naik kelas sejak dibantu Kawung! Dari yang tadinya cuma jualan di offline, sekarang udah punya toko online sendiri, engagement di sosmed meningkat, dan penghasilan bulanan naik 2x lipat. Auto recommended buat UMKM yang mau naik level!"
-              rating={5}
+              rating={4.5}
               image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
             />
             <TestimonialCard

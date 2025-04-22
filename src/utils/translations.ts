@@ -28,6 +28,7 @@ export type TranslationKey =
   | 'emailServiceDesc' | 'emailFeature1' | 'emailFeature2' | 'emailFeature3' | 'emailFeature4'
   | 'ppcServiceDesc' | 'ppcFeature1' | 'ppcFeature2' | 'ppcFeature3' | 'ppcFeature4'
   | 'analyticsServiceDesc' | 'analyticsFeature1' | 'analyticsFeature2' | 'analyticsFeature3' | 'analyticsFeature4'
+  | 'websiteServiceDesc' | 'websiteFeature1' | 'websiteFeature2' | 'websiteFeature3' | 'websiteFeature4'
   // Portfolio Page
   | 'portfolioTitle' | 'portfolioSubtitle' | 'seeResults' | 'seeResultsSubtitle'
   | 'categoryAll' | 'categorySocial' | 'categorySEO' | 'categoryContent' | 'categoryPPC'
@@ -46,7 +47,7 @@ export type TranslationKey =
   | 'seo' | 'seoDesc'
   | 'contentMarketing' | 'contentMarketingDesc'
   | 'dataAnalytics' | 'dataAnalyticsDesc'
-  | 'emailMarketing' | 'ppcAdvertising'
+  | 'emailMarketing' | 'ppcAdvertising' | 'websiteDevelopment' | 'websiteDevelopmentDesc'
   // Newsletter
   | 'subscribe' | 'subscribeTitle' | 'subscribeSubtitle' | 'subscribingMsg' | 'thankYouSubscribing'
   // Footer
@@ -160,6 +161,12 @@ export const translations: Translations = {
     analyticsFeature3: 'Custom dashboard development',
     analyticsFeature4: 'Regular performance reports',
     
+    websiteServiceDesc: 'Get a modern, responsive, and user-friendly website that reflects your brand identity and drives conversions.',
+    websiteFeature1: 'Custom website design and development',
+    websiteFeature2: 'Responsive and mobile-friendly interfaces',
+    websiteFeature3: 'SEO-ready technical setup',
+    websiteFeature4: 'CMS integration and training',
+    
     // Common services
     socialMediaMarketing: 'Social Media Marketing',
     socialMediaMarketingDesc: 'Engage with your audience and build brand awareness through strategic social media campaigns.',
@@ -171,6 +178,8 @@ export const translations: Translations = {
     dataAnalyticsDesc: 'Make data-driven decisions with comprehensive analytics and reporting.',
     emailMarketing: 'Email Marketing',
     ppcAdvertising: 'PPC Advertising',
+    websiteDevelopment: 'Website Development',
+    websiteDevelopmentDesc: 'Create a stunning website that attracts customers and boosts your online presence.',
     
     // Newsletter
     subscribe: 'Subscribe',
@@ -342,6 +351,12 @@ export const translations: Translations = {
     analyticsFeature3: 'Pengembangan dasbor kustom',
     analyticsFeature4: 'Laporan kinerja berkala',
     
+    websiteServiceDesc: 'Dapatkan website modern, responsif, dan ramah pengguna yang mencerminkan identitas merek Anda dan mendorong konversi.',
+    websiteFeature1: 'Desain dan pengembangan website kustom',
+    websiteFeature2: 'Antarmuka responsif dan mobile-friendly',
+    websiteFeature3: 'Setup teknis siap SEO',
+    websiteFeature4: 'Integrasi CMS dan pelatihan',
+    
     // Common services
     socialMediaMarketing: 'Pemasaran Media Sosial',
     socialMediaMarketingDesc: 'Terlibat dengan audiens Anda dan bangun kesadaran merek melalui kampanye media sosial strategis.',
@@ -353,6 +368,8 @@ export const translations: Translations = {
     dataAnalyticsDesc: 'Buat keputusan berdasarkan data dengan analitik dan pelaporan komprehensif.',
     emailMarketing: 'Email Marketing',
     ppcAdvertising: 'Iklan PPC',
+    websiteDevelopment: 'Pengembangan Website',
+    websiteDevelopmentDesc: 'Buat website yang menarik untuk menarik pelanggan dan meningkatkan kehadiran online Anda.',
     
     // Newsletter
     subscribe: 'Berlangganan',

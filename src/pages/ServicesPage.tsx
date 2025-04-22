@@ -1,4 +1,4 @@
-import { ChartBar, Mail, MessageSquare, Search, TrendingUp, Users } from 'lucide-react';
+import { ChartBar, Mail, MessageSquare, Code, Search, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -74,10 +74,6 @@ const ServicesPage = () => {
                   <li className="flex items-start">
                     <span className="text-orange-500 mr-2">•</span>
                     {t('smFeature2')}
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-500 mr-2">•</span>
-                    {t('smFeature3')}
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-500 mr-2">•</span>
@@ -205,15 +201,44 @@ const ServicesPage = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-500 mr-2">•</span>
-                    {t('analyticsFeature2')}
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-500 mr-2">•</span>
                     {t('analyticsFeature3')}
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-500 mr-2">•</span>
                     {t('analyticsFeature4')}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Service 7 - Website Development */}
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg">
+                  <Code size={32} />
+                </div>
+              </div>
+              <div className="ml-6">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">{t('websiteDevelopment')}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {t('websiteServiceDesc')}
+                </p>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-orange-500 mr-2">•</span>
+                    {t('websiteFeature1')}
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-500 mr-2">•</span>
+                    {t('websiteFeature2')}
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-500 mr-2">•</span>
+                    {t('websiteFeature3')}
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-500 mr-2">•</span>
+                    {t('websiteFeature4')}
                   </li>
                 </ul>
               </div>

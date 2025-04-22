@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react';
+import { Star, StarHalf } from 'lucide-react';
 
 interface TestimonialCardProps {
   name: string;
@@ -10,6 +10,49 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ name, position, company, testimonial, rating, image }: TestimonialCardProps) => {
+  // Generate star rating with support for half stars
+  const renderStars = () => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <Star 
+          key={`full-${i}`} 
+          size={16} 
+          className="text-amber-400 fill-amber-400"
+        />
+      );
+    }
+    
+    // Add half star if needed
+    if (hasHalfStar) {
+      stars.push(
+        <StarHalf 
+          key="half" 
+          size={16} 
+          className="text-amber-400 fill-amber-400"
+        />
+      );
+    }
+    
+    // Add empty stars
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <Star 
+          key={`empty-${i}`} 
+          size={16} 
+          className="text-gray-300 dark:text-gray-600"
+        />
+      );
+    }
+    
+    return stars;
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
       <div className="flex items-center mb-4">
@@ -23,13 +66,7 @@ const TestimonialCard = ({ name, position, company, testimonial, rating, image }
       </div>
       
       <div className="flex mb-4">
-        {[...Array(5)].map((_, i) => (
-          <Star 
-            key={i} 
-            size={16} 
-            className={i < rating ? "text-amber-400 fill-amber-400" : "text-gray-300 dark:text-gray-600"}
-          />
-        ))}
+        {renderStars()}
       </div>
       
       <p className="text-gray-700 dark:text-gray-300 italic">"{testimonial}"</p>
