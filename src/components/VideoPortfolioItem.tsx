@@ -15,7 +15,6 @@ interface VideoPortfolioItemProps {
 
 const VideoPortfolioItem = ({ 
   title, 
-  category, 
   description, 
   thumbnailImage, 
   videoUrl, 
