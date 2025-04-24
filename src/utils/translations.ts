@@ -32,6 +32,7 @@ export type TranslationKey =
   // Portfolio Page
   | 'portfolioTitle' | 'portfolioSubtitle' | 'seeResults' | 'seeResultsSubtitle'
   | 'categoryAll' | 'categorySocial' | 'categorySEO' | 'categoryContent' | 'categoryPPC'
+  | 'portfolioEmpty' | 'portfolioEmptySubtext' | 'ourCreations' | 'viewDetail' | 'liveDemo' | 'projectYear'
   // Blog Page
   | 'blogTitle' | 'blogSubtitle' | 'searchArticles' | 'noArticlesFound'
   | 'tryAdjusting' | 'viewAllArticles' | 'stayUpdated' | 'newsletterSubtitle'
@@ -214,6 +215,12 @@ export const translations: Translations = {
     categorySEO: 'SEO',
     categoryContent: 'Content Marketing',
     categoryPPC: 'PPC',
+    portfolioEmpty: 'Our portfolio is currently being updated',
+    portfolioEmptySubtext: 'Please check back soon to see our latest work',
+    ourCreations: 'Our Creations',
+    viewDetail: 'View Detail',
+    liveDemo: 'Live Demo',
+    projectYear: 'Project Year',
     
     // Blog Page
     blogTitle: 'Digital Marketing Blog',
@@ -316,15 +323,15 @@ export const translations: Translations = {
     getFreeConsultation: 'Dapatkan Konsultasi Gratis',
     
     seoServiceDesc: 'Tingkatkan visibilitas situs web Anda dalam hasil pencarian dan dorong lalu lintas organik melalui teknik SEO strategis.',
-    seoFeature1: 'Riset dan strategi kata kunci',
+    seoFeature1: 'Riset kata kunci dan strategi',
     seoFeature2: 'Optimasi on-page dan off-page',
-    seoFeature3: 'Audit teknis SEO dan perbaikan',
+    seoFeature3: 'Audit dan perbaikan teknis SEO',
     seoFeature4: 'SEO lokal untuk visibilitas bisnis',
     
     smServiceDesc: 'Bangun kesadaran merek, berinteraksi dengan audiens Anda, dan dorong konversi melalui kampanye media sosial strategis.',
     smFeature1: 'Strategi platform dan perencanaan konten',
     smFeature2: 'Pembuatan dan publikasi konten',
-    smFeature3: 'Manajemen komunitas dan interaksi',
+    smFeature3: 'Manajemen komunitas dan keterlibatan',
     smFeature4: 'Periklanan media sosial berbayar',
     
     contentServiceDesc: 'Buat konten berharga yang menarik, melibatkan, dan mengonversi audiens target Anda sambil membangun otoritas merek Anda.',
@@ -343,18 +350,18 @@ export const translations: Translations = {
     ppcFeature1: 'Strategi dan setup kampanye',
     ppcFeature2: 'Riset kata kunci dan pembuatan iklan',
     ppcFeature3: 'Manajemen penawaran dan optimasi anggaran',
-    ppcFeature4: 'Optimasi landing page',
+    ppcFeature4: 'Optimasi halaman arahan',
     
-    analyticsServiceDesc: 'Buat keputusan berbasis data dengan analitik dan pelaporan komprehensif yang melacak kinerja pemasaran Anda.',
-    analyticsFeature1: 'Setup dan konfigurasi analitik',
+    analyticsServiceDesc: 'Ambil keputusan berbasis data dengan analitik dan pelaporan komprehensif yang melacak kinerja pemasaran Anda.',
+    analyticsFeature1: 'Pengaturan dan konfigurasi analitik',
     analyticsFeature2: 'Pelacakan KPI dan pengukuran tujuan',
-    analyticsFeature3: 'Pengembangan dasbor kustom',
+    analyticsFeature3: 'Pengembangan dasbor khusus',
     analyticsFeature4: 'Laporan kinerja berkala',
     
-    websiteServiceDesc: 'Dapatkan website modern, responsif, dan ramah pengguna yang mencerminkan identitas merek Anda dan mendorong konversi.',
-    websiteFeature1: 'Desain dan pengembangan website kustom',
-    websiteFeature2: 'Antarmuka responsif dan mobile-friendly',
-    websiteFeature3: 'Setup teknis siap SEO',
+    websiteServiceDesc: 'Dapatkan situs web modern, responsif, dan ramah pengguna yang mencerminkan identitas merek Anda dan mendorong konversi.',
+    websiteFeature1: 'Desain dan pengembangan situs web kustom',
+    websiteFeature2: 'Antarmuka responsif dan ramah seluler',
+    websiteFeature3: 'Pengaturan teknis siap SEO',
     websiteFeature4: 'Integrasi CMS dan pelatihan',
     
     // Common services
@@ -364,12 +371,12 @@ export const translations: Translations = {
     seoDesc: 'Tingkatkan visibilitas situs web Anda dalam hasil pencarian dan dorong lalu lintas organik.',
     contentMarketing: 'Pemasaran Konten',
     contentMarketingDesc: 'Buat konten berharga yang menarik dan mempertahankan audiens target Anda.',
-    dataAnalytics: 'Analisis Data',
-    dataAnalyticsDesc: 'Buat keputusan berdasarkan data dengan analitik dan pelaporan komprehensif.',
-    emailMarketing: 'Email Marketing',
-    ppcAdvertising: 'Iklan PPC',
-    websiteDevelopment: 'Pengembangan Website',
-    websiteDevelopmentDesc: 'Buat website yang menarik untuk menarik pelanggan dan meningkatkan kehadiran online Anda.',
+    dataAnalytics: 'Analitik Data',
+    dataAnalyticsDesc: 'Ambil keputusan berbasis data dengan analitik dan pelaporan komprehensif.',
+    emailMarketing: 'Pemasaran Email',
+    ppcAdvertising: 'Periklanan PPC',
+    websiteDevelopment: 'Pengembangan Situs Web',
+    websiteDevelopmentDesc: 'Buat situs web yang menakjubkan yang menarik pelanggan dan meningkatkan kehadiran online Anda.',
     
     // Newsletter
     subscribe: 'Berlangganan',
@@ -404,6 +411,12 @@ export const translations: Translations = {
     categorySEO: 'SEO',
     categoryContent: 'Pemasaran Konten',
     categoryPPC: 'PPC',
+    portfolioEmpty: 'Portofolio kami sedang diperbarui',
+    portfolioEmptySubtext: 'Silakan periksa kembali nanti untuk melihat karya terbaru kami',
+    ourCreations: 'Karya Kami',
+    viewDetail: 'Lihat Detail',
+    liveDemo: 'Demo Langsung',
+    projectYear: 'Tahun Proyek',
     
     // Blog Page
     blogTitle: 'Blog Pemasaran Digital',
