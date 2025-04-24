@@ -114,12 +114,12 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <NavLink 
-                to="/contact" 
-                className="bg-indigo-700 hover:bg-indigo-800 text-white px-4 py-2 rounded-md transition-colors text-sm font-medium"
-              >
-                {t('getQuote')}
-              </NavLink>
+            <NavLink 
+              to="/contact" 
+              className="bg-indigo-700 hover:bg-indigo-800 text-white px-4 py-2 rounded-md transition-colors text-sm font-medium"
+            >
+              {t('getQuote')}
+            </NavLink>
             </motion.div>
           </div>
           
@@ -170,13 +170,13 @@ const Navbar = () => {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <NavLink 
-                    to="/contact" 
+                <NavLink 
+                  to="/contact" 
                     className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-md transition-colors text-base font-medium text-center shadow-md block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {t('getQuote')}
-                  </NavLink>
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('getQuote')}
+                </NavLink>
                 </motion.div>
               </motion.div>
             </motion.div>

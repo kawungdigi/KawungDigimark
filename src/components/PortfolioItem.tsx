@@ -54,20 +54,20 @@ const PortfolioItem = ({ title, category, description, image, images, projectYea
   
   return (
     <>
-      <motion.div 
-        className="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800"
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.3 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="relative overflow-hidden h-48">
-          <img 
+    <motion.div 
+      className="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative overflow-hidden h-48">
+        <img 
             src={currentImage} 
-            alt={title} 
-            className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
-            style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
-          />
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
+          style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
+        />
           
           {/* Navigation arrows for multiple images */}
           {imageArray.length > 1 && (
@@ -99,12 +99,12 @@ const PortfolioItem = ({ title, category, description, image, images, projectYea
                     }`}
                   />
                 ))}
-              </div>
+        </div>
             </>
           )}
-        </div>
-        <div className="p-5">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">{title}</h3>
+      </div>
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">{title}</h3>
           <div className="flex justify-between items-center mb-2">
             <div className="text-xs text-gray-500 dark:text-gray-400">{category}</div>
             {projectYear && (
@@ -113,12 +113,12 @@ const PortfolioItem = ({ title, category, description, image, images, projectYea
               </div>
             )}
           </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{description}</p>
           <div className="flex items-center space-x-4">
             <button
               onClick={openDetailModal}
-              className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 text-sm font-medium"
-            >
+            className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 text-sm font-medium"
+          >
               {t('viewDetail')} <ChevronRight size={14} className="ml-1" />
             </button>
           </div>
@@ -188,8 +188,8 @@ const PortfolioItem = ({ title, category, description, image, images, projectYea
                       <ChevronRight size={24} />
                     </button>
                   </>
-                )}
-              </div>
+        )}
+      </div>
               
               {/* Thumbnail Navigation */}
               {imageArray.length > 1 && (
@@ -221,7 +221,7 @@ const PortfolioItem = ({ title, category, description, image, images, projectYea
                 <p className="text-gray-700 dark:text-gray-300">{description}</p>
               </div>
             </motion.div>
-          </motion.div>
+    </motion.div>
         )}
       </AnimatePresence>
     </>

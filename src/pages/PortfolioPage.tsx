@@ -209,16 +209,16 @@ const PortfolioPage = () => {
             >
               Aplikasi
             </button>
-            <button 
+              <button
               onClick={() => setActiveCategory('Video')}
               className={`px-4 py-2 rounded-md transition-colors ${
                 activeCategory === 'Video' 
-                  ? 'bg-indigo-600 text-white' 
+                    ? 'bg-indigo-600 text-white' 
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
-              }`}
-            >
+                }`}
+              >
               Video
-            </button>
+              </button>
           </div>
           
           {/* Portfolio Grid */}
@@ -232,17 +232,17 @@ const PortfolioPage = () => {
               </p>
             </div>
           ) : (
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence>
-                {filteredItems.map(item => (
-                  <motion.div
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
+              {filteredItems.map(item => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
                     {item.category === 'Video' ? (
                       <VideoPortfolioItem
                         title={item.title}
@@ -254,19 +254,19 @@ const PortfolioPage = () => {
                         projectYear={(item as VideoPortfolioItemType).projectYear}
                       />
                     ) : (
-                      <PortfolioItem
-                        title={item.title}
-                        category={item.category}
-                        description={item.description}
+                  <PortfolioItem
+                    title={item.title}
+                    category={item.category}
+                    description={item.description}
                         image={(item as PortfolioItemType).image}
                         images={hasMultipleImages(item) ? item.images : undefined}
                         projectYear={(item as PortfolioItemType).projectYear}
-                      />
+                  />
                     )}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
           )}
         </div>
       </section>
